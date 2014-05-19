@@ -115,8 +115,8 @@ func NotNil() Matcher {
 	})
 }
 
-func Contains(o interface {}) Matcher {
+func Contains(o interface{}) Matcher {
 	return newDelegateMatcher(fmt.Sprintf(" contains %v", o), func(actual interface{}) bool {
-			return strings.Contains(fmt.Sprintf("%v", actual), fmt.Sprintf("%v", o))
-		})
+		return strings.Contains(fmt.Sprintf("%v", actual), fmt.Sprintf("%v", o))
+	})
 }

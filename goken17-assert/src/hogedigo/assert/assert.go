@@ -1,11 +1,11 @@
 package assert
 
 import (
+	"fmt"
 	"hogedigo/assert/is"
-	"testing"
 	"runtime"
 	"strings"
-	"fmt"
+	"testing"
 )
 
 // JunitのassertThatを意識してみました
@@ -22,7 +22,7 @@ import (
 func That(t *testing.T, actual interface{}, m is.Matcher) {
 	if !m.Matches(actual) {
 		desc := location() + "\n Expected: " + m.DescribeExpected() +
-			"\n     but: was %v"
+			"\n     but: was %#v"
 
 		t.Errorf(desc, actual)
 	}
